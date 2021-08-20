@@ -4,7 +4,7 @@ const initialState = {
     tracks: []
 }
 
-export const productReducer = (state = initialState, {type, payload}) =>{
+export const trackReducer = (state = initialState, {type, payload}) =>{
     switch (type) {
         case ActionTypes.SET_TRACKS:
             return {...state, tracks: payload}

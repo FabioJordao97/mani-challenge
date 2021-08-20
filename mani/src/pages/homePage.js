@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
-import { setTracks } from '../redux/actions/productActions'
+import { setTracks } from '../redux/actions/trackActions'
 import { useDispatch} from 'react-redux'
 import MainList from '../components/mainList'
 
