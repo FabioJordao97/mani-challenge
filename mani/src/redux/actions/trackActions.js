@@ -7,10 +7,20 @@ export const setTracks = (tracks) => {
     }
 }
 
-export const selectedTracks = (track) => {
+export const addToPlaylist = (trackId) => {
     return {
-        type: ActionTypes.SELECT_TRACKS,
-        payload: track
+        type: ActionTypes.ADD_TRACKS_TO_PLAYLIST,
+        payload: {
+            id: trackId
+        }
     }
 }
 
+export const removeFromPaylist = (trackId) => {
+    return {
+        type: ActionTypes.REMOVE_TRACKS_FROM_PLAYLIST,
+        payload: {
+            id: trackId
+        }
+    }
+}

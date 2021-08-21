@@ -1,12 +1,13 @@
 import React from 'react'
+import Playlist from '../components/playlist'
 
 
 const PlaylistPage = () => {
+
     return (
         <div>
-            <p>Hello World</p>
+           <Playlist />
         </div>
-    )
-}
+    )}
 
 export default PlaylistPage
