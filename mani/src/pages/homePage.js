@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState} from 'react'
 import axios from 'axios'
-import { setTracks } from '../redux/actions/productActions'
+import { setTracks } from '../redux/actions/trackActions'
 import { useDispatch} from 'react-redux'
 import MainList from '../components/mainList'
+import SearchBar from '../components/searchBar'
+import Card from '../components/card'
 
 const HomePage = () => {
     const dispatch = useDispatch();
