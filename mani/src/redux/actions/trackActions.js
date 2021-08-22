@@ -16,6 +16,15 @@ export const addToPlaylist = (trackId) => {
     }
 }
 
+export const addToPlaylistFromSearch = (trackId) => {
+    return {
+        type: ActionTypes.ADD_TRACKS_TO_PLAYLIST_FROM_SEARCH,
+        payload: {
+            id: trackId
+        }
+    }
+}
+
 export const removeFromPaylist = (trackId) => {
     return {
         type: ActionTypes.REMOVE_TRACKS_FROM_PLAYLIST,

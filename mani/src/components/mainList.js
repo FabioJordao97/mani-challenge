@@ -2,14 +2,11 @@ import React from 'react'
 import { addToPlaylist } from '../redux/actions/trackActions'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { goToPlaylist } from '../router/coordinator'
-import Card from './card'
 
 
 const MainList = () => {
 
     const dispatch = useDispatch()
-    const history = useHistory()
     const songs = useSelector((state)=> state.allTracks.tracks)
 
     const renderList = songs.map((song)=>{
@@ -31,8 +28,6 @@ const MainList = () => {
 
     return (
         <div>
-            <button onClick={() => goToPlaylist(history)}>Playlist</button>
-            <Card />
            {renderList}
         </div>
     )

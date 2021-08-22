@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addToPlaylist } from '../redux/actions/trackActions'
+import { addToPlaylistFromSearch } from '../redux/actions/trackActions'
 
 const Card = () => {
     const dispatch = useDispatch()
@@ -18,7 +18,7 @@ const Card = () => {
                  <audio controls>
                     <source src={results.preview}></source>
                  </audio>
-                 <button onClick={() => dispatch(addToPlaylist(results.id))}>Adicione a sua playlist</button>
+                 <button onClick={() => dispatch(addToPlaylistFromSearch(results.id))}>Adicione a sua playlist</button>
              </div>
         )
     })

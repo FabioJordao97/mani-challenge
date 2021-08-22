@@ -1,13 +1,14 @@
 import React, { useEffect} from 'react'
 import axios from 'axios'
 import { setTracks } from '../redux/actions/trackActions'
-import { useDispatch} from 'react-redux'
+import { useDispatch, useSelector} from 'react-redux'
 import MainList from '../components/mainList'
 import Card from '../components/card'
 import SearchBar from '../components/searchBar'
 
 const HomePage = () => {
     const dispatch = useDispatch();
+    const show = useSelector((state) => state.allTracks.show)
 
     const getSongs = () => {
         axios
@@ -30,10 +31,24 @@ const HomePage = () => {
         getSongs()
     }, [])
 
+    console.log(show)
+    const showList = () => {
+            if(show === false) {
+                return (
+                   <MainList />
+                )
+            } else if (show === true){
+                return (
+                    <Card />
+                )
+            }
+        }
+  
+
     return (
         <div>
             <SearchBar />
-            <MainList />
+            {showList()}
         </div>
     )
 }
