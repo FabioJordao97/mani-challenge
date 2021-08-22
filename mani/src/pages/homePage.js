@@ -4,6 +4,7 @@ import { setTracks } from '../redux/actions/trackActions'
 import { useDispatch} from 'react-redux'
 import MainList from '../components/mainList'
 import Card from '../components/card'
+import SearchBar from '../components/searchBar'
 
 const HomePage = () => {
     const dispatch = useDispatch();
@@ -23,9 +24,7 @@ const HomePage = () => {
             .catch((error) => {
                 console.log(error.message)
             })
-    }
-
-    
+    }    
 
     useEffect(() => {
         getSongs()
@@ -33,8 +32,8 @@ const HomePage = () => {
 
     return (
         <div>
+            <SearchBar />
             <MainList />
-            <Card />
         </div>
     )
 }

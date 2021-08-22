@@ -3,7 +3,7 @@ import { addToPlaylist } from '../redux/actions/trackActions'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { goToPlaylist } from '../router/coordinator'
-import SearchBar from './searchBar'
+import Card from './card'
 
 
 const MainList = () => {
@@ -32,7 +32,7 @@ const MainList = () => {
     return (
         <div>
             <button onClick={() => goToPlaylist(history)}>Playlist</button>
-            <SearchBar />
+            <Card />
            {renderList}
         </div>
     )

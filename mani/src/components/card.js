@@ -6,8 +6,7 @@ const Card = () => {
     const dispatch = useDispatch()
 
     const result = useSelector((state) => state.allTracks.result)
-    console.log(result)
-
+    
     const renderResults = result.map((results) =>{
         return (
             <div key={results.id}>
