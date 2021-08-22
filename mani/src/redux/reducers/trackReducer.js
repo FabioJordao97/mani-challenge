@@ -2,7 +2,9 @@ import {ActionTypes} from '../constants/actionTypes'
 
 const initialState = {
     tracks: [],
-    playlist: []
+    playlist: [],
+    search: '',
+    result: []
 }
 
 export const trackReducer = (state = initialState, {type, payload}) =>{
@@ -23,6 +25,16 @@ export const trackReducer = (state = initialState, {type, payload}) =>{
             return {
                 ...state,
                 playlist: state.playlist.filter(track => track.id !== payload.id)
+            }
+        case ActionTypes.SEARCH_TRACKS:
+            return {
+                ...state,
+                search: payload
+            }
+        case ActionTypes.SEARCH_RESULTS:
+            return {
+                ...state,
+                result: payload
             }
         default:
          return state

@@ -24,3 +24,17 @@ export const removeFromPaylist = (trackId) => {
         }
     }
 }
+
+export const searchBar = (text) => {
+    return {
+        type: ActionTypes.SEARCH_TRACKS,
+        payload: text
+    }
+}
+
+export const setSearchResult = (text) => {
+    return {
+        type: ActionTypes.SEARCH_RESULTS,
+        payload: text
+    }
+}

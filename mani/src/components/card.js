@@ -1,23 +1,31 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addToPlaylist } from '../redux/actions/trackActions'
 
-const Card = (props) => {
+const Card = () => {
     const dispatch = useDispatch()
+
+    const result = useSelector((state) => state.allTracks.result)
+    console.log(result)
+
+    const renderResults = result.map((results) =>{
+        return (
+            <div key={results.id}>
+                 <p>{results.title}</p>
+                 <img src={results.album.cover_small} alt='capa do álbum' />
+                 <p>{results.duration}</p>
+                 <p>{results.artist.name}</p>
+                 <p>{results.link}</p>
+                 <audio controls>
+                    <source src={results.preview}></source>
+                 </audio>
+                 <button onClick={() => dispatch(addToPlaylist(results.id))}>Adicione a sua playlist</button>
+             </div>
+        )
+    })
     return (
         <div>
-            <div key={props.id}>
-                <p>{props.position}</p>
-                 <p>{props.title}</p>
-                 <img src={props.artist.cover_small} alt='capa do álbum' />
-                 <p>{props.duration}</p>
-                 <p>{props.name}</p>
-                 <p>{props.link}</p>
-                 <audio controls>
-                    <source src={props.preview}></source>
-                 </audio>
-                 <button onClick={() => dispatch(addToPlaylist(props.id))}>Adicione a sua playlist</button>
-             </div>
+        {renderResults}
         </div>
     )
 }
