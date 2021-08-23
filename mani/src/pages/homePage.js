@@ -4,7 +4,9 @@ import { setTracks } from '../redux/actions/trackActions'
 import { useDispatch, useSelector} from 'react-redux'
 import MainList from '../components/mainList'
 import Card from '../components/card'
+import Header from '../components/header'
 import SearchBar from '../components/searchBar'
+import Footer from '../components/footer'
 
 const HomePage = () => {
     const dispatch = useDispatch();
@@ -37,7 +39,7 @@ const HomePage = () => {
                 return (
                    <MainList />
                 )
-            } else if (show === true){
+            } else{
                 return (
                     <Card />
                 )
@@ -47,8 +49,10 @@ const HomePage = () => {
 
     return (
         <div>
+            <Header />
             <SearchBar />
             {showList()}
+            <Footer />
         </div>
     )
 }

@@ -2,14 +2,12 @@ import React from 'react'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { searchBar, setSearchResult} from '../redux/actions/trackActions'
-import { goToPlaylist } from '../router/coordinator'
-import { useHistory } from 'react-router-dom'
+import { SearchBarDiv, SearchBarStyled, SearchTitle } from '../styles/searchBarStyles'
 
 
 const SearchBar = () => {
 
     const dispatch = useDispatch()
-    const history = useHistory()
     const search = useSelector((state) => state.allTracks.search)
 
     const getSearchedSongs = () => {
@@ -35,19 +33,18 @@ const SearchBar = () => {
 
 
     return (
-        <div>
-            <button onClick={() => goToPlaylist(history)}>Playlist</button>
+        <SearchBarDiv>
+            <SearchTitle>Encontre suas músicas favoritas aqui:</SearchTitle>
             <form onSubmit={onSubmit}>
-                <input
+                <SearchBarStyled
                     type='text'
                     name='search'
                     value={search}
-                    placeholder='Search'
                     onChange={onChange}
                 />
                 <input type='submit' value='Search' />
             </form>
-        </div>
+        </SearchBarDiv>
     )
 }
 

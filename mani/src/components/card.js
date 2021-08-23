@@ -1,18 +1,22 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToPlaylistFromSearch } from '../redux/actions/trackActions'
+import { goToHome } from '../router/coordinator'
+import { useHistory } from 'react-router-dom'
+import format from '../functions/timeFormat'
 
 const Card = () => {
     const dispatch = useDispatch()
-
     const result = useSelector((state) => state.allTracks.result)
+    const history = useHistory()
     
-    const renderResults = result.map((results) =>{
+    const renderResults = result.length === 0 ? <p>Sua busca não encontrou nenhum resultado</p> : result.map((results) =>{
+        const duration = results.duration
         return (
             <div key={results.id}>
                  <p>{results.title}</p>
                  <img src={results.album.cover_small} alt='capa do álbum' />
-                 <p>{results.duration}</p>
+                 <p>{format(duration)} minutos</p>
                  <p>{results.artist.name}</p>
                  <p>{results.link}</p>
                  <audio controls>
@@ -24,6 +28,7 @@ const Card = () => {
     })
     return (
         <div>
+            <button onClick={() => history.go(0)}>Home</button>
         {renderResults}
         </div>
     )
