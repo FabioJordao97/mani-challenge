@@ -1,36 +1,42 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToPlaylistFromSearch } from '../redux/actions/trackActions'
-import { goToHome } from '../router/coordinator'
-import { useHistory } from 'react-router-dom'
 import format from '../functions/timeFormat'
+import { AddToPlaylistDiv, SongArtist, SongCard, SongDuration, SongImg, SongPreview, SongTitle } from '../styles/mainListStyles'
+import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
+import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
+import { ButtonResultDiv, SearchResultsDiv } from '../styles/searchResultStyles'
 
 const Card = () => {
     const dispatch = useDispatch()
     const result = useSelector((state) => state.allTracks.result)
-    const history = useHistory()
-    
-    const renderResults = result.length === 0 ? <p>Sua busca não encontrou nenhum resultado</p> : result.map((results) =>{
+
+    const renderResults = result.length === 0 ? <p>Sua busca não encontrou nenhum resultado</p> : result.map((results) => {
         const duration = results.duration
+        const link = results.link
         return (
-            <div key={results.id}>
-                 <p>{results.title}</p>
-                 <img src={results.album.cover_small} alt='capa do álbum' />
-                 <p>{format(duration)} minutos</p>
-                 <p>{results.artist.name}</p>
-                 <p>{results.link}</p>
-                 <audio controls>
+            <SongCard key={results.id}>
+                <SongImg src={results.album.cover_medium} alt='capa do álbum' />
+                <ButtonResultDiv>
+                    <PlayCircleFilledIcon fontSize="large" color='secondary' onClick={() => window.open(link, "_blank")} />
+                    <AddToPlaylistDiv>
+                        <PlaylistAddIcon fontSize="large" color="secondary" onClick={() => dispatch(addToPlaylistFromSearch(results.id))} />
+                    </AddToPlaylistDiv>
+                </ButtonResultDiv>
+
+                <SongTitle>{results.title}</SongTitle>
+                <SongArtist>{results.artist.name}</SongArtist>
+                <SongDuration>{format(duration)} minutos</SongDuration>                
+                <SongPreview controls>
                     <source src={results.preview}></source>
-                 </audio>
-                 <button onClick={() => dispatch(addToPlaylistFromSearch(results.id))}>Adicione a sua playlist</button>
-             </div>
+                </SongPreview>
+            </SongCard>
         )
     })
     return (
-        <div>
-            <button onClick={() => history.go(0)}>Home</button>
-        {renderResults}
-        </div>
+        <SearchResultsDiv>
+            {renderResults}
+        </SearchResultsDiv>
     )
 }
 

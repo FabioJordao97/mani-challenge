@@ -31,5 +31,28 @@ display: inline;
 `
 
 export const SongPreview = styled.audio`
-margin-left: -18vh;
+margin-left: 3vh;
+`
+
+export const ButtonDiv = styled.div`
+margin-top: -8vh;
+margin-left: 4vh;
+&:hover{
+    cursor: pointer;
+}
+
+`
+
+export const SongCard = styled.div`
+border-bottom: 2vh double #525A59;
+border-width: thin;
+margin-bottom: 1vh;
+`
+
+export const AddToPlaylistDiv = styled.div`
+margin-left: 35vh;
+margin-top: -6vh;
+&:hover{
+    cursor: pointer;
+}
 `
