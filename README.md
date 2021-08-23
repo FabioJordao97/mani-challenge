@@ -25,7 +25,7 @@ Material UI: npm install @material-ui/core
   <br>
 Ícone da Material UI: npm install @material-ui/icons
   <br>
-  Devido a um erro inesperado de CORS vindo da API do Deezer, também é necessário a instalar de alguma extensão controladora de CORS para que os dados sejam visíveis. Recomendo a Allow CORS.
+  Devido a um erro inesperado de CORS vindo da API do Deezer, também é necessário a instalar de alguma extensão controladora de CORS para que os dados sejam visíveis. Recomendo a Allow CORS. Após a instalação da extensão, é necessário ativá-la para que seja possível receber as informações.
 </p>
 
 # Como Rodar
