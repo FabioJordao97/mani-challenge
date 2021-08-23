@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { searchBar, setSearchResult} from '../redux/actions/trackActions'
-import { SearchBarDiv, SearchBarStyled, SearchTitle } from '../styles/searchBarStyles'
+import { SearchBarDiv, SearchBarStyled, SearchSubmit, SearchTitle } from '../styles/searchBarStyles'
 
 
 const SearchBar = () => {
@@ -38,11 +38,12 @@ const SearchBar = () => {
             <form onSubmit={onSubmit}>
                 <SearchBarStyled
                     type='text'
+                    placeholder='Buscar...'
                     name='search'
                     value={search}
                     onChange={onChange}
                 />
-                <input type='submit' value='Search' />
+                <SearchSubmit type='submit' value='Search' />
             </form>
         </SearchBarDiv>
     )
