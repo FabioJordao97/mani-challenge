@@ -9,7 +9,7 @@ const Playlist = () => {
     const songs = useSelector((state)=> state.allTracks.playlist)
     const history = useHistory()
     const dispatch = useDispatch()
-    const renderList = songs.map((song)=>{
+    const renderList = songs.length === 0 ?  <p>Lista vazia</p> : songs.map((song)=>{
         return (
             <div key={song.id}>
                 <p>{song.position}</p>
