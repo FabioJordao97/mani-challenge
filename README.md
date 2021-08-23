@@ -10,13 +10,22 @@
 
 # Configurações
 <p>Para rodar o projeto é necessário instalar as seguintes bibliotecas através dos seguintes comandos:
+  <br>
 Axios: npm install axios
+  <br>
 Redux: npm install redux
+  <br>
 React Redux: npm install react-redux
+  <br>
 Styled Components: npm install styled-components
+  <br>
 React Router Dom: npm install react-router-dom
+  <br>
 Material UI: npm install @material-ui/core
+  <br>
 Ícone da Material UI: npm install @material-ui/icons
+  <br>
+  Devido a um erro inesperado de CORS vindo da API do Deezer, também é necessário a instalar de alguma extensão controladora de CORS para que os dados sejam visíveis. Recomendo a Allow CORS.
 </p>
 
 # Como Rodar
